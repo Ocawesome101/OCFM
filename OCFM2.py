@@ -15,7 +15,7 @@
 #with Bash. This is strictly command-line and somewhat Vi-like.
 #Hopefully this goes better than my first attempt, which was a MESS.
 #
-#This program will require VLC Media Player and the Mousepad text editor to work
+#This program will eventually require VLC Media Player and the Mousepad text editor to work
 #to its full extent.
 
 from os import system
@@ -34,11 +34,14 @@ while 1:
         command = command[8:len(command)]
         delete = input('Are you sure you want to delete file ' + command + '? (y/n)')
         if delete == 'y':
-            system('rm ' + command)
+            system('rm -r ' + command)
         elif delete == 'n':
             print('Aborting')
         elif delete != 'y' and delete != 'n':
-            print('Aborting - you did not type Y or N.')
+            print('Aborting - you did not type Y or N.'
+    elif command[0:6] == ':mkdir':
+        command = command[7:len(command)]
+        system('mkdir ' + command)
     elif command[0] != ':':
         CurrentDir += command + '/'
     elif command[0] == ':':
