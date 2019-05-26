@@ -1,8 +1,11 @@
 # OCFM
 Simple command-line file manager for Linux written in Python 3.5. Programmed on GalliumOS on my potato of a Chromebook.
 
+# How do I install/uninstall it? I can't run (un)install.sh!
+In a command line, CD to the OCFM directory. Then, run 'chmod +x install.sh uninstall.sh OCFM2.py' without the quotes. Once you have done that you should be able to run './install.sh' and './uninstall.sh', as well as './OCFM2.py'. install.sh and uninstall.sh will ask for your password as they involve adding/removing system files.
+
 # How do I use it?
-The interface can be rather forbidding at first, like Vi. The commands are somewhat Vi-like:
+Commands are somewhat Vi-like:
 
 :q or :quit or :exit - exit OCFM.
 
