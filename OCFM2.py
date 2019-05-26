@@ -26,7 +26,7 @@ while 1:
         CurrentDir = '/' #Set current directory to /
     elif command == ':h' or command == ':help': #Help command
         print('OCFM Help\nCommands:\n:q or :quit or :exit - exit OCFM\n:/ - Return to the root directory\n <Directory Name> - Move to that directory\n:delete <file> - delete a file. Will ask for confirmation.')
-        print(':mkdir - makes a directory.\n:bk - moves up a directory.\n:open <file> - open specified file. OCFM will try to recognize the file extension and open the appropriate application. You must NOT specify a directory.')
+        print(':mkdir - makes a directory.\n:bk - moves up a directory.\n:open <file> - open specified file. OCFM will try to recognize the file extension. You must NOT specify a directory.')
     elif command[0:7] == ':delete': #Delete command
         command = command[8:len(command)] #Remove the ':delete ' from the command variable
         delete = input('Are you sure you want to delete file ' + command + '? (y/n)') #Ask for confirmation
