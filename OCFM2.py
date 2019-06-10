@@ -11,7 +11,7 @@
 #
 #Sorry for the bad ASCII art.
 #
-#OCFM by Ocawesome101. Made with Python 3.5, and works through an interface
+#OCFM by Ocawesome101. Made with Python 3.5, and works through a sort of interface
 #with Bash. This is strictly command-line and somewhat Vi-like.
 
 from os import system
@@ -45,14 +45,10 @@ while 1:
         else: #If user is NOT in the root directory then
             CurrentDir = CurrentDir[0:(len(CurrentDir) - 2)] #Remove any '/' characters due to the potential for there to be more than one because of the way my script works
             while CurrentDir[(len(CurrentDir) - 1)] != '/': #Repeat until we hit a '/' character signifying the upper directory
-                CurrentDir = CurrentDir[0:(len(CurrentDir) - 1)] #Remove one character from the
-#current directory variable. I know this can probably be done in more efficient ways but this is how I have decided to do it.
+                CurrentDir = CurrentDir[0:(len(CurrentDir) - 1)] #Remove one character from the current directory variable. I know this can probably be done in more efficient ways but this is how I have decided to do it.
     elif command[0:5] == ':open': #Detect if command is :open
         command = command[6:len(command)] #Remove the ':open' from the command
-        if command[(len(command) - 4):len(command)] == '.txt' or command[(len(command) - 3):len(command)] == '.md' or command[(len(command) - 3):len(command)] == '.sh': #Try to recognize the file extension
-            system('nano ' + CurrentDir + command) #Nano the file
-        else:
-            print('Unknown File Extension!')
+        system('nano ' + CurrentDir + command) #Nano the file
     elif command[0] != ':':
         CurrentDir += command + '/'
     elif command[0] == ':':
