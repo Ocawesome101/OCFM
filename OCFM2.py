@@ -1,4 +1,4 @@
-#!/usr/bin/env python3.5
+#!/usr/bin/env python3
 #  _____     _____   _______  __    __
 # /OOOOO\   /CCCCC\  |FFFFFF||MM\  /MM|
 #/O/   \O\ /C/   \C\ |F|___  |M\M\/M/M|
@@ -11,7 +11,7 @@
 #
 #Sorry for the bad ASCII art.
 #
-#OCFM by Ocawesome101. Made with Python 3.5, and works through a sort of interface
+#OCFM by Ocawesome101. Made with Python 3.5, and works through an interface
 #with Bash. This is strictly command-line and somewhat Vi-like.
 
 from os import system
@@ -48,7 +48,10 @@ while 1:
                 CurrentDir = CurrentDir[0:(len(CurrentDir) - 1)] #Remove one character from the current directory variable. I know this can probably be done in more efficient ways but this is how I have decided to do it.
     elif command[0:5] == ':open': #Detect if command is :open
         command = command[6:len(command)] #Remove the ':open' from the command
-        system('nano ' + CurrentDir + command) #Nano the file
+        if command[(len(command) - 4):len(command)] == '.txt' or command[(len(command) - 3):len(command)] == '.md' or command[(len(command) - 3):len(command)] == '.sh': #Try to recognize the file extension
+            system('nano ' + CurrentDir + command) #Nano the file
+        else:
+            print('Unknown File Extension!')
     elif command[0] != ':':
         CurrentDir += command + '/'
     elif command[0] == ':':
