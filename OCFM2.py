@@ -19,7 +19,7 @@ CurrentDir = '/'
 system('ls ' + CurrentDir)
 print('OCFM 2.0. Type \':\' before commands.')
 while 1:
-    command = input('')
+    command = input('> ')
     if command == ':q' or command == ':quit' or command == ':exit': #Quit command
         exit()
     elif command == ':/': #Return to root command
@@ -48,10 +48,7 @@ while 1:
                 CurrentDir = CurrentDir[0:(len(CurrentDir) - 1)] #Remove one character from the current directory variable. I know this can probably be done in more efficient ways but this is how I have decided to do it.
     elif command[0:5] == ':open': #Detect if command is :open
         command = command[6:len(command)] #Remove the ':open' from the command
-        if command[(len(command) - 4):len(command)] == '.txt' or command[(len(command) - 3):len(command)] == '.md' or command[(len(command) - 3):len(command)] == '.sh': #Try to recognize the file extension
-            system('nano ' + CurrentDir + command) #Nano the file
-        else:
-            print('Unknown File Extension!')
+        system('nano ' + CurrentDir + command) #Nano the file
     elif command[0] != ':':
         CurrentDir += command + '/'
     elif command[0] == ':':
